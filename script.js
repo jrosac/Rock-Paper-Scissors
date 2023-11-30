@@ -19,17 +19,55 @@ function playRound(playerSelection, computerSelection){
 }
 
     if(
-        (playerSelection === "rock" && computerSelection ==="scissors") ||
-        (playerSelection === "paper" && computerSelection ==="rock"   ) ||
+        (playerSelection === "rock" && computerSelection ==="scissors" ) ||
+        (playerSelection === "paper" && computerSelection ==="rock"    ) ||
         (playerSelection === "scissors" && computerSelection ==="paper") 
 ){
-        return `Player Wins!, ${playerSelection} beats ${computerSelection}`
+        return `Player Wins!, ${playerSelection} beats ${computerSelection}`;
 }
     else{
-        return`Player Loses!, ${computerSelection} beats ${playerSelection}`
+        return`Player Loses!, ${computerSelection} beats ${playerSelection}`;
     }
 }
-const jogador = "paper"
+/*const jogador = "paper"
 const maquina = getComputerChoice()
 const partida = playRound(jogador,maquina)
-console.log(partida)
+console.log(partida)*/
+
+function game(){
+    let playerScore   = 0;
+    let computerScore = 0;
+    
+    for(let round=1;round<=5;round++){
+        const playerSelection = "rock"
+        const computerSelection = getComputerChoice();
+
+        console.log(`${round}° Round`)
+        const roundResult = playRound(playerSelection,computerSelection);
+        console.log(roundResult)
+
+        if(roundResult.includes("Wins!")){
+            playerScore++
+        }
+        else if(roundResult.includes("Loses!")){
+            computerScore++
+        }
+        
+        console.log(`Score: ${playerScore} - ${computerScore}`)
+        
+        if(playerScore > computerScore){
+            console.log( "Congrats you WIN the Game!")
+        }
+        else if(computerScore > playerScore){
+            console.log( "Sorry you lOST the Game :(")
+        }
+        else{
+            console.log( "it's a DRAW")
+        }
+        
+  }
+}
+game();
+
+
+
