@@ -3,25 +3,30 @@
 <head>
 
 <link rel="stylesheet" type="text/css" href="styles.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <title>Rock, Paper and Scissors</title>
 
 </head>
 
 <body>
 
-  <h1>Rock, Paper and Scissors</h1>
-
-  <button type="button">
+  <h1 id="title">Rock, Paper and Scissors</h1>
+  
+  <section id="buttons">
+  <button onclick="playerChoice('rock')">
     <img src="asserts/pedra.jpg" alt="botton to select rock">
   </button>
   
-  <button type="button">
+  <button onclick="playerChoice('paper')">
     <img src="asserts/papel.jpg" alt="botton to select paper">
   </button>
   
-  <button type="button">
+  <button onclick="playerChoice('scissors')">
     <img src="asserts/tesoura.jpg" alt="botton to select scissor">
   </button>
+  </section>
+  
+  <div id="output"></div>
 
 
   <script src="script.js"></script>
