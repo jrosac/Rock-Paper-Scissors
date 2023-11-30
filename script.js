@@ -1,4 +1,4 @@
-function getComputerChoice() //function that choose a random number beetween 0 and 2 an applies a switch case for any of them.
+function getComputerChoice() 
 {
     const randomNumber = Math.floor(Math.random() * 3);
     switch (randomNumber) {
@@ -34,7 +34,7 @@ const maquina = getComputerChoice()
 const partida = playRound(jogador,maquina)
 console.log(partida)*/
 
-function game(){
+/*function game(){
     let playerScore   = 0;
     let computerScore = 0;
     
@@ -67,7 +67,55 @@ function game(){
         
   }
 }
-game();
+game();*/
+
+let playerScore = 0;
+let computerScore = 0;
+
+function playerChoice(playerSelection) {
+    const result = document.getElementById('output');
+  
+    // Limpe o conteúdo anterior
+    result.innerHTML = '';
+  
+    const computerSelection = getComputerChoice();
+  
+    result.innerHTML += `<p>Player:  ${playerSelection}<br>Computer:  ${computerSelection}</p>`;
+  
+    const roundResult = playRound(playerSelection, computerSelection);
+    result.innerHTML += `<p>${roundResult}</p>`;
+  
+    
+    if (roundResult.includes('Win')) {
+      playerScore++;
+    } else if (roundResult.includes('Lose')) {
+      computerScore++;
+    }
+  
+    result.innerHTML += `<p>Score - You: ${playerScore}, Computer: ${computerScore}</p>`;
+    
+    if (playerScore === 5 || computerScore === 5) {
+      endGame();
+    }
+  }
+  
+
+function endGame() {
+  const result = document.getElementById('output');
+  
+  if (playerScore > computerScore) {
+    result.innerHTML += '<p>You WIN the game :)</p>';
+  } else if (computerScore > playerScore) {
+    result.innerHTML += '<p>You LOSE the game :(</p>';
+  } else {
+    result.innerHTML += "<p>It's a DRAW :| </p>";
+  }
+
+  playerScore = 0;
+  computerScore = 0;
+}
+
+
 
 
 
